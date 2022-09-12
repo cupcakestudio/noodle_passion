@@ -68,10 +68,12 @@ function visRamen() {
 
   //put data fra jsonDatabasen ind i skabelon og put det ind i main for hvert element i databasen
   jsonData.forEach(ramen => {
+    if (ramen.Rating >= 3){ //top picks ramen
     const clone = skabelon.cloneNode(true);
     clone.querySelector("h2").textContent = ramen.Navn;
     clone.querySelector("img").src = "billeder/" + ramen.Billede + ".webp";
     main.appendChild(clone);
+    }
   })
 }
 hentRamenData();
