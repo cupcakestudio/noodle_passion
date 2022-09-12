@@ -20,10 +20,11 @@
   <button>OM OS</button>
 
 </header>
-<main>
-  <div class="splash">
+<div class="splash">
     <img src="" alt="splash_rotate">
   </div>
+<main>
+  
   <h1>Favoritter og anbefalinger</h1> 
   <!-- filteringsknapper -->
   <button>Aarhus</button>
@@ -47,18 +48,33 @@ const url = "https://noodleslurpt7-2a38.restdb.io/rest/noodleplaces";
 const options = {
  headers: {"x-apikey": "631eeef8fdc15b0265f172fa"} //API KEY
 }
-
+//globale variabler
+let jsonData;
 
 //hent dataen
 async function hentRamenData() {
 const respons = await fetch(url, options);
-const jsonData = await respons.json();
+jsonData = await respons.json();
 visRamen();
 }
-//setup af loop 
+//setup af fullview loop på forsiden
 function visRamen() {
   console.log("hej");
+  
+  const main = document.querySelector("main");
+  const skabelon = document.querySelector("template").content;
+  main.innerHTML = 
+  "<h1>Favoritter og anbefalinger</h1> <!-- filteringsknapper --><button>Aarhus</button><button>København</button><button>Odense</button> ";
+
+  //put data fra jsonDatabasen ind i skabelon og put det ind i main for hvert element i databasen
+  jsonData.forEach(ramen => {
+    const clone = skabelon.cloneNode(true);
+    clone.querySelector("h2").textContent = ramen.Navn;
+    clone.querySelector("img").src = "billeder/" + ramen.Billede + ".webp";
+    main.appendChild(clone);
+  })
 }
 hentRamenData();
+
 </script>
 </html>
