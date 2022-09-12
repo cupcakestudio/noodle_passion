@@ -14,8 +14,21 @@
  // adgang til databasen
 const url = "https://noodleslurpt7-2a38.restdb.io/rest/noodleplaces";
 
-const header = {
-  'x-apikey': '	631eeef8fdc15b0265f172fa' //API KEY
+const options = {
+ headers: {"x-apikey": "631eeef8fdc15b0265f172fa"} //API KEY
 }
+
+
+//hent dataen
+async function hentRamenData() {
+const respons = await fetch(url, options);
+const jsonData = await respons.json();
+visRamen();
+}
+//setup af loop 
+function visRamen() {
+  console.log("hej");
+}
+hentRamenData();
 </script>
 </html>
