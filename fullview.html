@@ -1,16 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full Slurp</title>
-</head>
-<body>
-  <section id="popop"></section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full Slurp</title>
+  </head>
 
-  <template>
-    <a href=""></a> <!-- ekstern link -->
-  </template>
-</body>
+  <body>
+    <section id="popop"></section>
+
+    <template>
+      <a href=""></a>
+      <!-- ekstern link -->
+    </template>
+
+    <!-- SINGLEVIEW SEPERAT SIDE -->
+
+    <!-- Tilbage knap-->
+    <button>Tilbage</button>
+    <article>
+      <img src="" alt="" class="billeder_singleview" />
+      <h2></h2>
+      <p></p>
+    </article>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get("id");
+      console.log(id);
+
+      const endpoint = "https://noodleslurpt7-2a38.restdb.io/rest/noodleplaces" + id;
+      const mereinfo = {
+        headers: {
+          "x-apikey": "631eeef8fdc15b0265f172fa",
+        },
+      };
+
+      /* Global variabel */
+      let byer;
+
+      console.log("ID", id);
+      document.addEventListener("DOMContentLoaded", hentData);
+
+      async function hentData() {
+        const respons = await fetch(endpoint, mereinfo);
+        byer = await respons.json();
+        console.log(byer);
+        visByer();
+      }
+
+      /* skabelon navne på nøgleværdien skal ændres */
+      function visByer() {
+        document.querySelector("h2").textContent = byer.fornavn + " " + byer.efternavn;
+        document.querySelector("img").src = "./billeder/" + byer.billede;
+        document.querySelector("img").alt = byer.billede;
+        document.querySelector("button").addEventListener("click", tilbageKnap);
+      }
+
+      function tilbageKnap() {
+        history.back();
+      }
+    </script>
+  </body>
 </html>
