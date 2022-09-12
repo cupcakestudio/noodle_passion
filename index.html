@@ -66,7 +66,7 @@ function visRamen() {
   main.innerHTML = 
   "<h1>Favoritter og anbefalinger</h1> <!-- filteringsknapper --><button>Aarhus</button><button>København</button><button>Odense</button> ";
 
-  //put data fra json ind i skabelon og put det ind i main
+  //put data fra jsonDatabasen ind i skabelon og put det ind i main for hvert element i databasen
   jsonData.forEach(ramen => {
     const clone = skabelon.cloneNode(true);
     clone.querySelector("h2").textContent = ramen.Navn;
