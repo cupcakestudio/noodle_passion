@@ -1,80 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slurp</title>
-</head>
-<body>
-<div id="background_container"> 
-<img src="" alt="background_noodle_img" id="noodle_graphic_img">
-</div> 
-<!--   navigations button -->
-<header>
-<img src="billeder/logo_slurp.svg" alt="logo" class="logo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Slurp</title>
+  </head>
+  <body>
+    <!--   navigations button -->
+    <header>
+      <img src="billeder/logo_slurp.svg" alt="logo" class="logo" />
 
-  <button>Aarhus</button>
-  <button>København</button>
-  <button>Odense</button>
-  <button>OM OS</button>
+      <button>Aarhus</button>
+      <button>København</button>
+      <button>Odense</button>
+      <button>OM OS</button>
+    </header>
+    <!-- <div id="background_container">
+      <img src="/billeder/noodle_background.webp" alt="background_noodle_img" id="noodle_graphic_img" />
+    </div> -->
+    <div class="splash">
+      <img src="" alt="splash_rotate" />
+    </div>
+    <main>
+      <h1>Favoritter og anbefalinger</h1>
+      <!-- filteringsknapper -->
+      <button>Aarhus</button>
+      <button>København</button>
+      <button>Odense</button>
+    </main>
+    <footer></footer>
+    <!-- skabelon for ramen butikker article -->
+    <template>
+      <div id="popup">
+        <article>
+          <!-- gør article til grid, således at h2 kan stå oveni billede -->
+          <h2 class="ramenNavn"></h2>
+          <img src="" alt="" class="ramenbillede" />
+          <p></p>
+          <p class="link"></p>
+        </article>
+      </div>
+    </template>
+  </body>
 
-</header>
-<div class="splash">
-    <img src="" alt="splash_rotate">
-  </div>
-<main>
-  
-  <h1>Favoritter og anbefalinger</h1> 
-  <!-- filteringsknapper -->
-  <button>Aarhus</button>
-  <button>København</button>
-  <button>Odense</button>
-</main>
-<footer></footer>
-<!-- skabelon for ramen butikker article -->
-<template>
-  <article> <!-- gør article til grid, således at h2 kan stå oveni billede -->
-    <h2 class="ramenNavn"></h2>
-    <img src="" alt="" class="ramenbillede">
-  </article>
-</template>
-</body>
+  <script>
+    // adgang til databasen
+    const url = "https://noodleslurpt7-2a38.restdb.io/rest/noodleplaces";
 
-<script>
- // adgang til databasen
-const url = "https://noodleslurpt7-2a38.restdb.io/rest/noodleplaces";
+    const options = {
+      headers: { "x-apikey": "631eeef8fdc15b0265f172fa" }, //API KEY
+    };
+    //globale variabler
+    let jsonData;
 
-const options = {
- headers: {"x-apikey": "631eeef8fdc15b0265f172fa"} //API KEY
-}
-//globale variabler
-let jsonData;
+    //hent dataen
+    async function hentRamenData() {
+      const respons = await fetch(url, options);
+      jsonData = await respons.json();
+      visRamen();
+    }
+    //setup af fullview loop på forsiden
+    function visRamen() {
+      console.log("hej");
 
-//hent dataen
-async function hentRamenData() {
-const respons = await fetch(url, options);
-jsonData = await respons.json();
-visRamen();
-}
-//setup af fullview loop på forsiden
-function visRamen() {
-  console.log("hej");
-  
-  const main = document.querySelector("main");
-  const skabelon = document.querySelector("template").content;
-  main.innerHTML = 
-  "<h1>Favoritter og anbefalinger</h1> <!-- filteringsknapper --><button>Aarhus</button><button>København</button><button>Odense</button> ";
+      const main = document.querySelector("main");
+      const skabelon = document.querySelector("template").content;
+      main.innerHTML = "<h1>Favoritter og anbefalinger</h1> <!-- filteringsknapper --><button>Aarhus</button><button>København</button><button>Odense</button> ";
 
-  //put data fra jsonDatabasen ind i skabelon og put det ind i main for hvert element i databasen
-  jsonData.forEach(ramen => {
-    const clone = skabelon.cloneNode(true);
-    clone.querySelector("h2").textContent = ramen.Navn;
-    clone.querySelector("img").src = "billeder/" + ramen.Billede + ".webp";
-    main.appendChild(clone);
-  })
-}
-hentRamenData();
+      //put data fra jsonDatabasen ind i skabelon og put det ind i main for hvert element i databasen
+      jsonData.forEach((ramen) => {
+        const clone = skabelon.cloneNode(true);
+        clone.querySelector("h2").textContent = ramen.Navn;
+        clone.querySelector("img").src = "billeder/" + ramen.Billede + ".webp";
+        main.appendChild(clone);
+      });
+    }
+    // popup funktionen
+    document.querySelector("#popup").addEventListener("click", () => (popup.style.display = "none"));
 
-</script>
+    function visDetaljer(restaurant) {
+      console.log(restaurant);
+      const popup = document.querySelector("#popup");
+      popup.style.display = "flex";
+      popup.querySelector("img").src = "billeder/" + restaurant.Billede + ".webp";
+      popup.querySelector("h2").textContent = restaurant.Navn;
+      popup.querySelector("p").textContent = restaurant.Beskrivelse;
+      popup.querySelector("p").textContent = restaurant.Adresse;
+      popup.querySelector("p+p").textContent = restaurant.Link;
+      popup.addEventListener("click", () => (popup.styledisplay = "none"));
+    }
+    hentRamenData();
+  </script>
 </html>
