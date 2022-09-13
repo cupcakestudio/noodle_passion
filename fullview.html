@@ -27,8 +27,8 @@
 
     <script>
       const urlParams = new URLSearchParams(window.location.search);
-      const id = urlParams.get("id");
-      console.log(id);
+      const adresse = urlParams.get("adresse");
+      console.log(adresse);
 
       const endpoint = "https://noodleslurpt7-2a38.restdb.io/rest/noodleplaces" + adresse;
       const mereinfo = {
@@ -40,7 +40,7 @@
       /* Global variabel */
       let byer;
 
-      console.log("ID", adresse);
+      console.log("Adresse", adresse);
       document.addEventListener("DOMContentLoaded", hentData);
 
       async function hentData() {
@@ -52,10 +52,11 @@
 
       /* skabelon navne på nøgleværdien skal ændres */
       function visByer() {
-        document.querySelector("h2").textContent = byer.fornavn + " " + byer.efternavn;
-        document.querySelector("img").src = "./billeder/" + byer.billede;
-        document.querySelector("img").alt = byer.billede;
-        document.querySelector("button").addEventListener("click", tilbageKnap);
+        byer.forEach((ramen) => {
+          document.querySelector("h2").textContent = byer.Navn;
+          document.querySelector("img").src = "billeder/" + byer.Billede + ".webp";
+          document.querySelector("button").addEventListener("click", tilbageKnap);
+        });
       }
 
       function tilbageKnap() {

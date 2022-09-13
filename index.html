@@ -58,7 +58,7 @@
     }
     //setup af fullview loop på forsiden
     function visRamen() {
-      console.log("hej");
+      console.log(jsonData);
 
       const main = document.querySelector("main");
       const skabelon = document.querySelector("template").content;
@@ -80,7 +80,7 @@
     function visRestauranter(hvor) {
       console.log(hvor);
       /* url parameter sættes = vores post inde i databasen (hvem står for person og er en parameter i visEnkeltPerson)  */
-      location.href = `fullview.html?id=${hvor._adresse}`;
+      location.href = `fullview.html?id=${hvor._id}`;
     }
 
     hentRamenData();
