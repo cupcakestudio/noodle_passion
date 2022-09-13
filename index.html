@@ -17,10 +17,17 @@
         margin: 50px;
       }
 
-      h2 {
+      h1 {
         font-family: "Josefin Slab", serif;
-        text-transform: uppercase;
-        font-weight: 900;
+        font-weight: 700;
+
+        font-size: 1.3;
+        text-align: center;
+      }
+
+      article {
+        display: grid;
+        padding-top: 40px;
       }
 
       .ramenbillede,
@@ -28,14 +35,14 @@
         grid-area: 1/1;
       }
 
-      article {
-        display: grid;
-      }
-
       .ramenNavn {
         place-self: center center;
         z-index: 1;
         color: white;
+        font-family: "M PLUS Rounded 1c", sans-serif;
+        text-transform: uppercase;
+        font-weight: 900;
+        text-shadow: 5px 5px black;
       }
 
       .ramenbillede {
@@ -44,6 +51,49 @@
 
       .ramenbillede:hover {
         filter: none;
+      }
+
+      button {
+        border: none;
+        background: none;
+        font-family: "Josefin Slab";
+        text-decoration: 1px underline;
+        font-size: 1.1rem;
+      }
+
+      .filteringsknapper_lokation {
+        display: flex;
+        justify-content: center;
+      }
+
+      @media (min-width: 700px) {
+        main {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 40px;
+        }
+
+        article {
+          padding-top: 0;
+        }
+        .overskrift_forside,
+        .filteringsknapper_lokation {
+          grid-column: 1 / span 2;
+        }
+      }
+      @media (min-width: 1000px) {
+        main {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-gap: 40px;
+        }
+        article {
+          padding-top: 0;
+        }
+        .overskrift_forside,
+        .filteringsknapper_lokation {
+          grid-column: 1 / span 3;
+        }
       }
     </style>
   </head>
@@ -64,11 +114,15 @@
       <img src="" alt="splash_rotate" />
     </div>
     <main>
-      <h1>Favoritter og anbefalinger</h1>
+      <div class="overskrift_forside">
+        <h1>Favoritter og anbefalinger</h1>
+      </div>
       <!-- filteringsknapper -->
-      <button>Aarhus</button>
-      <button>København</button>
-      <button>Odense</button>
+      <div class="filteringsknapper_lokation">
+        <button class="filteringsknapper">Aarhus</button>
+        <button class="filteringsknapper">København</button>
+        <button class="filteringsknapper">Odense</button>
+      </div>
     </main>
     <footer></footer>
     <!-- skabelon for ramen butikker article -->
@@ -103,7 +157,7 @@
 
       const main = document.querySelector("main");
       const skabelon = document.querySelector("template").content;
-      main.innerHTML = "<h1>Favoritter og anbefalinger</h1> <!-- filteringsknapper --><button>Aarhus</button><button>København</button><button>Odense</button> ";
+      main.innerHTML = "<div class='overskrift_forside'><h1>Favoritter og anbefalinger</h1></div> <!-- filteringsknapper --> <div class='filteringsknapper_lokation'><button class='filteringsknapper'>Aarhus</button> <button class='filteringsknapper'>København</button><button class='filteringsknapper'>Odense</button></div> ";
 
       //put data fra jsonDatabasen ind i skabelon og put det ind i main for hvert element i databasen
       jsonData.forEach((ramen) => {
