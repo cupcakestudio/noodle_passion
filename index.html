@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200;300;400;500;600;700&family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link href="popup.css" rel="stylesheet">
     <title>Slurp</title>
     <style>
       img {
@@ -189,6 +190,42 @@
         <button class="filteringsknapper">København</button>
         <button class="filteringsknapper">Odense</button>
       </div>
+    <link rel="stylesheet" href="popup.css">
+    <title>Slurp</title>
+  </head>
+  <body>
+    <div id="background_container">
+      <img src="" alt="background_noodle_img" id="noodle_graphic_img" />
+    </div>
+    <!--   navigations button -->
+    <header>
+      <img src="billeder/logo_slurp.svg" alt="logo" class="logo" />
+
+      <button>Aarhus</button>
+      <button>København</button>
+      <button>Odense</button>
+      <button>OM OS</button>
+    </header>
+    <div class="splash">
+      <img src="" alt="splash_rotate" />
+    </div> 
+    <div id="popup">
+      <article>
+         <div id="luk">&#x2715</div>
+        <h2>Ramen</h2>
+        <img src="" alt=""/>
+        <p></p>
+        <address></address>
+        <a href=""></a>
+      </article>
+    </div>
+    <main>
+      <h1>Favoritter og anbefalinger</h1>
+      <!-- filteringsknapper -->
+      <button>Aarhus</button>
+      <button>København</button>
+      <button>Odense</button>
+     
     </main>
     <footer></footer>
     <!-- skabelon for ramen butikker article -->
@@ -230,9 +267,27 @@
         const clone = skabelon.cloneNode(true);
         clone.querySelector("h2").textContent = ramen.Navn;
         clone.querySelector("img").src = "billeder/" + ramen.Billede + ".webp";
+        clone.querySelector("article").addEventListener("click", () => visRestaurant(ramen)); 
         main.appendChild(clone);
+        
       });
     }
+      // popup funktionen
+    
+
+      function visRestaurant(ramen) {
+        console.log("visRestaurant");
+        const popup = document.querySelector("#popup");
+        popup.style.display = "flex";
+        popup.querySelector("img").src = "billeder/" + ramen.Billede + ".webp";
+        popup.querySelector("h2").textContent = ramen.Navn;
+        popup.querySelector("p").textContent = ramen.Beskrivelse;
+        popup.querySelector("address").textContent = ramen.Adresse;
+        popup.querySelector("a").textContent = ramen.Link;
+        // popup.addEventListener("click", () => (popup.style.display = "none")); 
+         document.querySelector("#luk").addEventListener("click", () => (popup.style.display = "none"));
+      }
+    
     hentRamenData();
   </script>
 </html>
