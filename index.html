@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200;300;400;500;600;700&family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet" />
     <title>Slurp</title>
     <style>
       img {
@@ -12,6 +15,35 @@
 
       main {
         margin: 50px;
+      }
+
+      h2 {
+        font-family: "Josefin Slab", serif;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+
+      .ramenbillede,
+      .ramenNavn {
+        grid-area: 1/1;
+      }
+
+      article {
+        display: grid;
+      }
+
+      .ramenNavn {
+        place-self: center center;
+        z-index: 1;
+        color: white;
+      }
+
+      .ramenbillede {
+        filter: grayscale(50);
+      }
+
+      .ramenbillede:hover {
+        filter: none;
       }
     </style>
   </head>
