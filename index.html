@@ -1,80 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slurp</title>
-</head>
-<body>
-<div id="background_container"> 
-<img src="" alt="background_noodle_img" id="noodle_graphic_img">
-</div> 
-<!--   navigations button -->
-<header>
-<img src="billeder/logo_slurp.svg" alt="logo" class="logo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200;300;400;500;600;700&family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet" />
+    <title>Slurp</title>
+    <style>
+      img {
+        width: 100%;
+      }
 
-  <button>Aarhus</button>
-  <button>København</button>
-  <button>Odense</button>
-  <button>OM OS</button>
+      main {
+        margin: 50px;
+      }
 
-</header>
-<div class="splash">
-    <img src="" alt="splash_rotate">
-  </div>
-<main>
-  
-  <h1>Favoritter og anbefalinger</h1> 
-  <!-- filteringsknapper -->
-  <button>Aarhus</button>
-  <button>København</button>
-  <button>Odense</button>
-</main>
-<footer></footer>
-<!-- skabelon for ramen butikker article -->
-<template>
-  <article> <!-- gør article til grid, således at h2 kan stå oveni billede -->
-    <h2 class="ramenNavn"></h2>
-    <img src="" alt="" class="ramenbillede">
-  </article>
-</template>
-</body>
+      h1 {
+        font-family: "Josefin Slab", serif;
+        font-weight: 700;
 
-<script>
- // adgang til databasen
-const url = "https://noodleslurpt7-2a38.restdb.io/rest/noodleplaces";
+        font-size: 1.3;
+        text-align: center;
+      }
 
-const options = {
- headers: {"x-apikey": "631eeef8fdc15b0265f172fa"} //API KEY
-}
-//globale variabler
-let jsonData;
+      article {
+        display: grid;
+        padding-top: 40px;
+      }
 
-//hent dataen
-async function hentRamenData() {
-const respons = await fetch(url, options);
-jsonData = await respons.json();
-visRamen();
-}
-//setup af fullview loop på forsiden
-function visRamen() {
-  console.log("hej");
-  
-  const main = document.querySelector("main");
-  const skabelon = document.querySelector("template").content;
-  main.innerHTML = 
-  "<h1>Favoritter og anbefalinger</h1> <!-- filteringsknapper --><button>Aarhus</button><button>København</button><button>Odense</button> ";
+      /* Placerer ramenNavn oven på ramenbillede*/
 
-  //put data fra jsonDatabasen ind i skabelon og put det ind i main for hvert element i databasen
-  jsonData.forEach(ramen => {
-    const clone = skabelon.cloneNode(true);
-    clone.querySelector("h2").textContent = ramen.Navn;
-    clone.querySelector("img").src = "billeder/" + ramen.Billede + ".webp";
-    main.appendChild(clone);
-  })
-}
-hentRamenData();
+      .ramenbillede,
+      .ramenNavn {
+        grid-area: 1/1;
+      }
 
-</script>
+      .ramenNavn {
+        place-self: center center;
+        z-index: 1;
+        color: white;
+        font-family: "M PLUS Rounded 1c", sans-serif;
+        text-transform: uppercase;
+        font-weight: 900;
+        text-shadow: 5px 5px black;
+      }
+
+      /* Grayscale og hover på ramenbillede */
+
+      .ramenbillede {
+        filter: grayscale(50);
+      }
+
+      .ramenbillede:hover {
+        filter: none;
+      }
+
+      /* Styling af knapper i filtrerings menu */
+
+      button {
+        border: none;
+        background: none;
+        font-family: "Josefin Slab";
+      }
+
+      .filteringsknapper {
+        text-decoration: 1px underline;
+        font-size: 1.1rem;
+      }
+
+      .filteringsknapper_lokation {
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Placerer logo oven på splashbillede */
+
+      .splash {
+        display: grid;
+        width: 100%;
+        height: 100%;
+      }
+
+      .splash_billede,
+      .logo {
+        grid-area: 1/1;
+      }
+
+      .splash_billede {
+        filter: grayscale(50);
+        place-self: center center;
+        aspect-ratio: 2000/800;
+      }
+
+      .logo {
+        place-self: center center;
+        z-index: 1;
+        max-width: 30%;
+      }
+
+      /* Styling af header */
+
+      .logo_header {
+        width: 8%;
+        margin-right: 0 auto;
+      }
+
+      .header_menu {
+        padding-bottom: 10px;
+        font-size: 2rem;
+      }
+
+      .header_menu button {
+        font-size: 2rem;
+        padding-left: 17px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+
+      /* Sitet tilpasses forskellige media */
+
+      @media (min-width: 700px) {
+        main {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 40px;
+        }
+
+        .filteringsknapper {
+          font-size: 1.3rem;
+          padding-left: 15px;
+        }
+
+        article {
+          padding-top: 0;
+        }
+        .overskrift_forside,
+        .filteringsknapper_lokation {
+          grid-column: 1 / span 2;
+        }
+      }
+      @media (min-width: 1000px) {
+        main {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-gap: 40px;
+        }
+        article {
+          padding-top: 0;
+        }
+        .overskrift_forside,
+        .filteringsknapper_lokation {
+          grid-column: 1 / span 3;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div id="background_container">
+      <img src="" alt="background_noodle_img" id="noodle_graphic_img" />
+    </div> -->
+    <!--   navigations button -->
+    <header>
+      <img class="logo_header" src="billeder/logo_slurp.svg" alt="logo" class="logo" />
+      <div class="header_menu">
+        <button>Aarhus</button>
+        <button>København</button>
+        <button>Odense</button>
+        <button>OM OS</button>
+      </div>
+    </header>
+    <div class="splash">
+      <img class="logo" src="billeder/logo_slurp.svg" alt="logo" class="logo" />
+      <img class="splash_billede" src="billeder/splash_noodle1.webp" alt="splash_rotate" />
+    </div>
+    <main>
+      <div class="overskrift_forside">
+        <h1>Favoritter og anbefalinger</h1>
+      </div>
+      <!-- filteringsknapper -->
+      <div class="filteringsknapper_lokation">
+        <button class="filteringsknapper">Aarhus</button>
+        <button class="filteringsknapper">København</button>
+        <button class="filteringsknapper">Odense</button>
+      </div>
+    </main>
+    <footer></footer>
+    <!-- skabelon for ramen butikker article -->
+    <template>
+      <article>
+        <!-- gør article til grid, således at h2 kan stå oveni billede -->
+        <h2 class="ramenNavn"></h2>
+        <img src="" alt="" class="ramenbillede" />
+      </article>
+    </template>
+  </body>
+
+  <script>
+    // adgang til databasen
+    const url = "https://noodleslurpt7-2a38.restdb.io/rest/noodleplaces";
+
+    const options = {
+      headers: { "x-apikey": "631eeef8fdc15b0265f172fa" }, //API KEY
+    };
+    //globale variabler
+    let jsonData;
+
+    //hent dataen
+    async function hentRamenData() {
+      const respons = await fetch(url, options);
+      jsonData = await respons.json();
+      visRamen();
+    }
+    //setup af fullview loop på forsiden
+    function visRamen() {
+      console.log("hej");
+
+      const main = document.querySelector("main");
+      const skabelon = document.querySelector("template").content;
+      main.innerHTML = "<div class='overskrift_forside'><h1>Favoritter og anbefalinger</h1></div> <!-- filteringsknapper --> <div class='filteringsknapper_lokation'><button class='filteringsknapper'>Aarhus</button> <button class='filteringsknapper'>København</button><button class='filteringsknapper'>Odense</button></div> ";
+
+      //put data fra jsonDatabasen ind i skabelon og put det ind i main for hvert element i databasen
+      jsonData.forEach((ramen) => {
+        const clone = skabelon.cloneNode(true);
+        clone.querySelector("h2").textContent = ramen.Navn;
+        clone.querySelector("img").src = "billeder/" + ramen.Billede + ".webp";
+        main.appendChild(clone);
+      });
+    }
+    hentRamenData();
+  </script>
 </html>
