@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200;300;400;500;600;700&family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet" />
-    <link href="popup.css" rel="stylesheet">
     <title>Slurp</title>
     <style>
       img {
@@ -145,6 +144,55 @@
         .filteringsknapper_lokation {
           grid-column: 1 / span 2;
         }
+
+/* POPUP STYLING */
+      body {
+  background-image: url(/billeder/noodle_background.svg);
+  height: 100vh;
+  max-width: 100%;
+  /* background-repeat: no-repeat; */
+  /* aspect-ratio: 2525/5092; */
+  background-size: cover;
+}
+#popup {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(3, 3, 3, 0.702);
+  display: none;
+  justify-content: center;
+  overflow: scroll;
+  z-index: 2;
+}
+.billede_popup {
+  width: 50%;
+
+}
+
+#luk {
+  position: absolute;
+  left: 90%;
+  display: flex;
+  /*  padding: 1em; */
+  font-size: 1.7rem;
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  /* display: flex; */
+  z-index: 2;
+}
+
+#popup article {
+  position: fixed;
+  align-self: center;
+  width: 55%;
+  max-width: 875px;
+  background-color: white;
+  padding: 2rem;
+}
+
       }
       @media (min-width: 1000px) {
         main {
@@ -159,7 +207,69 @@
         .filteringsknapper_lokation {
           grid-column: 1 / span 3;
         }
+        #popup {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(3, 3, 3, 0.702);
+  display: none;
+  justify-content: center;
+  overflow: scroll;
+  z-index: 2;
+}
       }
+
+/* POPUP I MOBIL */
+      body {
+  background-image: url(/billeder/noodle_background.svg);
+  height: 100vh;
+  max-width: 100%;
+  /* background-repeat: no-repeat; */
+  /* aspect-ratio: 2525/5092; */
+  background-size: cover;
+}
+#popup {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(3, 3, 3, 0.702);
+  display: none;
+  justify-content: center;
+  overflow: scroll;
+  z-index: 2;
+}
+.billede_popup {
+  width: 100%;
+}
+
+#luk {
+  position: absolute;
+  left: 90%;
+  display: flex;
+  /*  padding: 1em; */
+  font-size: 1.7rem;
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  /* display: flex; */
+  z-index: 2;
+}
+
+#popup article {
+  position: fixed;
+  align-self: center;
+  background-color: #e5e1db;
+  padding: 2rem;
+}
+
+.overskrift_popup {
+  text-align: center;
+}
+
     </style>
   </head>
   <body>
@@ -190,44 +300,24 @@
         <button class="filteringsknapper">København</button>
         <button class="filteringsknapper">Odense</button>
       </div>
-    <link rel="stylesheet" href="popup.css">
-    <title>Slurp</title>
-  </head>
-  <body>
-    <div id="background_container">
-      <img src="" alt="background_noodle_img" id="noodle_graphic_img" />
-    </div>
-    <!--   navigations button -->
-    <header>
-      <img src="billeder/logo_slurp.svg" alt="logo" class="logo" />
+  
+  
 
-      <button>Aarhus</button>
-      <button>København</button>
-      <button>Odense</button>
-      <button>OM OS</button>
-    </header>
-    <div class="splash">
-      <img src="" alt="splash_rotate" />
-    </div> 
+      <div class="splash">
+        <img src="" alt="splash_rotate" />
+      </div> 
+    </main>
     <div id="popup">
       <article>
          <div id="luk">&#x2715</div>
-        <h2>Ramen</h2>
-        <img src="" alt=""/>
+        <h2 class="overskrift_popup">Ramen</h2>
+        <img src="" alt="" class="billede_popup"/>
         <p></p>
         <address></address>
         <a href=""></a>
       </article>
     </div>
-    <main>
-      <h1>Favoritter og anbefalinger</h1>
-      <!-- filteringsknapper -->
-      <button>Aarhus</button>
-      <button>København</button>
-      <button>Odense</button>
-     
-    </main>
-    <footer></footer>
+  
     <!-- skabelon for ramen butikker article -->
     <template>
       <article>
