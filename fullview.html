@@ -30,7 +30,7 @@
       const id = urlParams.get("id");
       console.log(id);
 
-      const endpoint = "https://noodleslurpt7-2a38.restdb.io/rest/noodleplaces" + id;
+      const endpoint = "https://noodleslurpt7-2a38.restdb.io/rest/noodleplaces" + adresse;
       const mereinfo = {
         headers: {
           "x-apikey": "631eeef8fdc15b0265f172fa",
@@ -40,7 +40,7 @@
       /* Global variabel */
       let byer;
 
-      console.log("ID", id);
+      console.log("ID", adresse);
       document.addEventListener("DOMContentLoaded", hentData);
 
       async function hentData() {
