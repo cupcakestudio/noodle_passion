@@ -1,0 +1,36 @@
+#popup {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(3, 3, 3, 0.702);
+  display: none;
+  justify-content: center;
+  overflow: scroll;
+}
+#luk {
+  position: absolute;
+  left: 90%;
+  display: flex;
+  /*  padding: 1em; */
+  font-size: 1.7rem;
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  /* display: flex; */
+  z-index: 1;
+}
+
+img {
+  width: 50%;
+}
+
+#popup article {
+  position: fixed;
+  align-self: center;
+  width: 55%;
+  max-width: 875px;
+  background-color: white;
+  padding: 2rem;
+}

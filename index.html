@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
     <title>Slurp</title>
   </head>
   <body>
@@ -21,6 +22,16 @@
     </header>
     <div class="splash">
       <img src="" alt="splash_rotate" />
+    </div> 
+    <div id="popup">
+      <article>
+         <div id="luk">&#x2715</div>
+        <h2>Ramen</h2>
+        <img src="" alt=""/>
+        <p></p>
+        <address></address>
+        <a href=""></a>
+      </article>
     </div>
     <main>
       <h1>Favoritter og anbefalinger</h1>
@@ -28,6 +39,7 @@
       <button>Aarhus</button>
       <button>København</button>
       <button>Odense</button>
+     
     </main>
     <footer></footer>
     <!-- skabelon for ramen butikker article -->
@@ -39,12 +51,6 @@
       </article>
     </template>
 
-    <article id="popup">
-      <h2 class="ramenNavn"></h2>
-      <img src="" alt="" class="ramenbillede" />
-      <p></p>
-      <p class="link"></p>
-    </article>
   </body>
 
   <script>
@@ -76,9 +82,27 @@
         const clone = skabelon.cloneNode(true);
         clone.querySelector("h2").textContent = ramen.Navn;
         clone.querySelector("img").src = "billeder/" + ramen.Billede + ".webp";
+        clone.querySelector("article").addEventListener("click", () => visRestaurant(ramen)); 
         main.appendChild(clone);
+        
       });
     }
+      // popup funktionen
+    
+
+      function visRestaurant(ramen) {
+        console.log("visRestaurant");
+        const popup = document.querySelector("#popup");
+        popup.style.display = "flex";
+        popup.querySelector("img").src = "billeder/" + ramen.Billede + ".webp";
+        popup.querySelector("h2").textContent = ramen.Navn;
+        popup.querySelector("p").textContent = ramen.Beskrivelse;
+        popup.querySelector("address").textContent = ramen.Adresse;
+        popup.querySelector("a").textContent = ramen.Link;
+        // popup.addEventListener("click", () => (popup.style.display = "none")); 
+         document.querySelector("#luk").addEventListener("click", () => (popup.style.display = "none"));
+      }
+    
     hentRamenData();
   </script>
 </html>
