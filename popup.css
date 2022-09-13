@@ -1,3 +1,9 @@
+body {
+  background-image: url(/billeder/noodle_background.webp);
+  height: auto;
+  background-repeat: no-repeat;
+  /* aspect-ratio: 16/9; */
+}
 #popup {
   position: fixed;
   width: 100vw;
