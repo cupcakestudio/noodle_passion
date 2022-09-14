@@ -267,6 +267,52 @@
   text-align: center;
 }
 
+/* BURGERMENU */
+.toggle-btn {
+  background: transparent;
+  border: none;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  /* Skjuler menu-knappen når den ikke er trykket på */
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .toggle-btn {
+    /* Viser knap i mobilformat = 600px */
+    display: block;
+    margin-left: auto;
+  }
+
+  .header_menu {
+    /* Fjerner den anden header_menu.header_menu når burgerheader_menu.header_menuen vises, men viser stadig børnene */
+    display: contents;
+  }
+
+  .header_menu ul {
+    /* Fjerner header_menu.header_menupunkterne når burger-header_menu.header_menuen ikke bliver vist */
+    display: none;
+  }
+
+  .header_menu.shown ul {
+    /* Vis header_menu.header_menupunkterne, når klassen ".shown" er til stede */
+    border-top: 1px solid #000;
+
+    padding-top: 1rem;
+    display: flex;
+    flex: 1 1 100%;
+    flex-flow: column;
+  }
+  .header_menu.shown ul li {
+    /* Vis header_menu.header_menu-listen, når klassen ".shown" er til stede */
+    flex-flow: column;
+    margin-left: auto;
+  }
+}
+
     </style>
   </head>
   <body>
@@ -395,5 +441,40 @@
       }
     
     hentRamenData();
+
+
+    /* BURGERMENU */
+// En variabel som vi kan referer til som toggle-btn senere
+const btn = document.querySelector(".toggle-btn");
+
+const burgermenu_img = document.querySelector(".burgermenu_img");
+// Variabel til ".main-menu"
+const menu = document.querySelector(".header_menu");
+
+// Funktion kaldet togglemenu
+function toggleMenu() {
+  // ClassList.toggle gør at menu at der sker noget når klassen bliver vist (shown)
+  menu.classList.toggle("shown");
+
+  // Variablen menuShown skal indeholde shown -brug ClassList contains
+  const menuShown = menu.classList.contains("shown");
+
+  // Bruger if sætning til at spørge om funktionen er shown eller ej
+  if (menuShown) {
+    console.log(menuShown);
+
+    burgermenu_img.src = "kryds.svg";
+    //hvis der bliver trykket på knappen så den toggler bliver billedet af krydset vist
+  } else {
+    console.log(menuShown);
+
+    //  bliver til burgermenu ikonet igen hvis menuShown ikke er til stede (false)
+    burgermenu_img.src = "burger_ikon.svg";
+  }
+}
+
+// lytter efter klik til "knappen" menu. dette starter funktionen
+btn.addEventListener("click", toggleMenu);
+
   </script>
 </html>
