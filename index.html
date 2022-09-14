@@ -127,6 +127,16 @@
         align-items: baseline;
       }
 
+  
+/* Luk knap */
+      #luk {
+  position: sticky;
+ justify-content: right;
+  display: flex;
+  font-size: 1.7rem;
+  cursor: pointer;
+  z-index: 2;
+}
       /* Sitet tilpasses forskellige media */
 
       @media (min-width: 700px) {
@@ -148,48 +158,6 @@
         .filteringsknapper_lokation {
           grid-column: 1 / span 2;
         }
-
-/* POPUP STYLING */
- 
-#popup {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: rgba(3, 3, 3, 0.702);
-  display: none;
-  justify-content: center;
-  overflow: scroll;
-  z-index: 2;
-}
-.billede_popup {
-  width: 50%;
-
-}
-
-#luk {
-  position: absolute;
-  left: 90%;
-  display: flex;
-  /*  padding: 1em; */
-  font-size: 1.7rem;
-  font-weight: bolder;
-  color: rgb(0, 0, 0);
-  cursor: pointer;
-  /* display: flex; */
-  z-index: 2;
-}
-
-#popup article {
-  position: fixed;
-  align-self: center;
-  width: 55%;
-  max-width: 875px;
-  background-color: white;
-  padding: 2rem;
-}
-
       }
       @media (min-width: 1000px) {
         main {
@@ -219,7 +187,7 @@
       }
 
 /* POPUP I MOBIL */
-      body {
+  body {
   background-image: url(/billeder/noodle_background_blue.svg);
   height: 100vh;
   max-width: 100%;
@@ -243,28 +211,21 @@
   width: 100%;
 }
 
-#luk {
-  position: absolute;
-  left: 90%;
-  display: flex;
-  /*  padding: 1em; */
-  font-size: 1.7rem;
-  font-weight: bolder;
-  color: rgb(0, 0, 0);
-  cursor: pointer;
-  /* display: flex; */
-  z-index: 2;
-}
 
 #popup article {
-  position: fixed;
+  position: absolute;
   align-self: center;
   background-color: #e5e1db;
   padding: 2rem;
+  max-width: 80%;
 }
 
 .overskrift_popup {
   text-align: center;
+}
+
+#popup p:nth-child(2) {
+  font-weight: bold;
 }
 
     </style>
@@ -309,9 +270,9 @@
          <div id="luk">&#x2715</div>
         <h2 class="overskrift_popup">Ramen</h2>
         <img src="" alt="" class="billede_popup"/>
-        <p></p>
-        <address></address>
-        <a href=""></a>
+        <p>Beskrivelse:</p>
+        <address>Adresse: </address>
+        <a href="">Link: </a>
       </article>
     </div>
   
