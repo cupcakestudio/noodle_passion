@@ -158,6 +158,28 @@
           grid-column: 1 / span 2;
         }
       }
+
+@media (min-width: 875px) {
+  .billede_popup {
+  width: 100%;
+  max-width: 300px;
+  grid-column: 1;
+
+}
+#popup article  {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ grid-template-rows: 1fr;
+ column-gap: 20px;
+}
+#luk {
+grid-column: 2;
+}
+.overskrift_popup {
+  grid-column: 2;
+}
+}
+
       @media (min-width: 1000px) {
         main {
           display: grid;
@@ -208,6 +230,8 @@
 }
 .billede_popup {
   width: 100%;
+  max-width: 390px;
+margin: auto;
 }
 
 
@@ -219,6 +243,7 @@
   max-width: 80%;
     font-family: "Josefin Slab", serif;
 }
+
 
 .overskrift_popup {
   text-align: center;
@@ -269,9 +294,11 @@
          <div id="luk">&#x2715</div>
         <h2 class="overskrift_popup">Ramen</h2>
         <img src="" alt="" class="billede_popup"/>
+       <div>
         <p>Beskrivelse:</p>
         <address>Adresse: </address>
         <a href="">Link: </a>
+        </div>
       </article>
     </div>
   
