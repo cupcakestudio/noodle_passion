@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200;300;400;500;600;700&family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet" />
     <title>Slurp</title>
     <style>
+
+  
       img {
         width: 100%;
       }
@@ -56,6 +58,75 @@
       article:hover {
         filter: none;
       }
+
+
+/* burgermenu */
+
+header {
+  padding: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.menu_header ul {
+ list-style: none;
+  padding: 0;
+
+  display: flex;
+  gap: 10px;
+}
+.toggle-btn {
+  background: transparent;
+  border: none;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  /* Skjuler menu-knappen når den ikke er trykket på */
+  display: none;
+}
+
+/* BURGERMENU */
+.toggle-btn {
+    /* Viser knap i mobilformat = 600px */
+    display: block;
+    margin-left: auto;
+  }
+  .menu {
+    /* Fjerner den anden menu når burgermenuen vises, men viser stadig børnene */
+    display: contents;
+  }
+  .menu ul {
+    /* Fjerner menupunkterne når burger-menuen ikke bliver vist */
+    display: none;
+  }
+
+  .menu.shown ul {
+    /* Vis menupunkterne, når klassen ".shown" er til stede */
+    border-top: 1px solid #000;
+
+    padding-top: 1rem;
+    display: flex;
+    flex: 1 1 100%;
+    flex-flow: column;
+  }
+  .menu.shown ul li {
+    /* Vis menu-listen, når klassen ".shown" er til stede */
+    flex-flow: column;
+    margin-left: auto;
+  }
+
+       @media (min-width: 600px) {
+.toggle-btn {
+  display: none;
+}
+ }
+
 
       /* Styling af knapper i filtrerings menu */
 
@@ -190,6 +261,9 @@
   padding: 2rem;
 }
 
+
+
+
       }
       @media (min-width: 1000px) {
         main {
@@ -267,51 +341,6 @@
   text-align: center;
 }
 
-/* BURGERMENU */
-.toggle-btn {
-  background: transparent;
-  border: none;
-  min-width: 44px;
-  min-height: 44px;
-  font-size: 1.1rem;
-  cursor: pointer;
-
-  /* Skjuler menu-knappen når den ikke er trykket på */
-  display: none;
-}
-
-@media (max-width: 600px) {
-  .toggle-btn {
-    /* Viser knap i mobilformat = 600px */
-    display: block;
-    margin-left: auto;
-  }
-
-  .header_menu {
-    /* Fjerner den anden header_menu.header_menu når burgerheader_menu.header_menuen vises, men viser stadig børnene */
-    display: contents;
-  }
-
-  .header_menu ul {
-    /* Fjerner header_menu.header_menupunkterne når burger-header_menu.header_menuen ikke bliver vist */
-    display: none;
-  }
-
-  .header_menu.shown ul {
-    /* Vis header_menu.header_menupunkterne, når klassen ".shown" er til stede */
-    border-top: 1px solid #000;
-
-    padding-top: 1rem;
-    display: flex;
-    flex: 1 1 100%;
-    flex-flow: column;
-  }
-  .header_menu.shown ul li {
-    /* Vis header_menu.header_menu-listen, når klassen ".shown" er til stede */
-    flex-flow: column;
-    margin-left: auto;
-  }
-}
 
     </style>
   </head>
@@ -320,13 +349,17 @@
     <!--   navigations button -->
     <header>
       <img class="logo_header" src="billeder/logo_3.svg" alt="logo" class="logo" />
+     <!--  Dette er vores menu container -->
       <nav class="header_menu">
         <!-- burgermenu -->
-        <button class="toggle-btn"><img class="burgermenu_img" src="" alt="x"></button>
-        <button data-by="aarhus">Aarhus</button>
-        <button data-by="kbh" class="vælg">København</button>
-        <button data-by="odense">Odense</button>
-        <button id="om_os">OM OS</button>
+       <button class="toggle-btn"><img class="burgermenu_img" src="burger_ikon.svg" alt="x"></button> 
+        
+       <ul class="mobil_burger">
+      <li><button data-by="aarhus">Aarhus</button></li>
+    <li> <button data-by="kbh" class="vælg">København</button></li> 
+     <li><button data-by="odense">Odense</button></li>
+     <li><button id="om_os">OM OS</button></li>
+     </ul>
       </nav>
     </header>
     <div class="splash">
@@ -449,8 +482,8 @@
 // En variabel som vi kan referer til som toggle-btn senere
 const btn = document.querySelector(".toggle-btn");
 
-const burgermenu_img = document.querySelector(".burgermenu_img");
-// Variabel til ".main-menu"
+const burger_img = document.querySelector(".burgermenu_img");
+// Variabel til vores menu container 
 const menu = document.querySelector(".header_menu");
 
 // Funktion kaldet togglemenu
@@ -465,13 +498,13 @@ function toggleMenu() {
   if (menuShown) {
     console.log(menuShown);
 
-    burgermenu_img.src = "kryds.svg";
+    burger_img.src = "kryds.svg";
     //hvis der bliver trykket på knappen så den toggler bliver billedet af krydset vist
   } else {
     console.log(menuShown);
 
     //  bliver til burgermenu ikonet igen hvis menuShown ikke er til stede (false)
-    burgermenu_img.src = "burger_ikon.svg";
+    burger_img.src = "burger_ikon.svg";
   }
 }
 
