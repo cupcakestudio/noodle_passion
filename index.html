@@ -63,8 +63,12 @@
         border: none;
         background: none;
         font-family: "Josefin Slab";
+        text-decoration: underline;
       }
-
+#om_os {
+  text-decoration: none;
+  font-size: 1.4rem;
+}
       .filteringsknapper {
         text-decoration: 1px underline;
         font-size: 1.1rem;
@@ -110,6 +114,7 @@
       .header_menu {
         padding-bottom: 10px;
         font-size: 2rem;
+        padding-right: 1rem;
       }
 
       .header_menu button {
@@ -272,12 +277,12 @@
     <!--   navigations button -->
     <header>
       <img class="logo_header" src="billeder/logo_3.svg" alt="logo" class="logo" />
-      <div class="header_menu">
+      <nav class="header_menu">
         <button>Aarhus</button>
         <button>København</button>
         <button>Odense</button>
-        <button>OM OS</button>
-      </div>
+        <button id="om_os">OM OS</button>
+      </nav>
     </header>
     <div class="splash">
       <img class="logo" src="billeder/logo_3.svg" alt="logo" class="logo" />
