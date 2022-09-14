@@ -224,9 +224,8 @@
   text-align: center;
 }
 
-#popup p:nth-child(2) {
-  font-weight: bold;
-}
+
+
 
     </style>
   </head>
@@ -282,6 +281,7 @@
         <!-- gør article til grid, således at h2 kan stå oveni billede -->
         <h2 class="ramenNavn"></h2>
         <img src="" alt="" class="ramenbillede" />
+        <p></p>
       </article>
     </template>
   </body>
@@ -315,6 +315,8 @@
         const clone = skabelon.cloneNode(true);
         clone.querySelector("h2").textContent = ramen.Navn;
         clone.querySelector("img").src = "billeder/" + ramen.Billede + ".webp";
+        clone.querySelector("p").textContent = ramen.Pris;
+
         clone.querySelector("article").addEventListener("click", () => visRestaurant(ramen)); 
         main.appendChild(clone);
         
