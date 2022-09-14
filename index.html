@@ -115,8 +115,11 @@
       .header_menu button {
         font-size: 2rem;
         padding-left: 17px;
+        text-decoration: underline;
       }
-
+#om_os {
+  text-decoration: none;
+}
       header {
         display: flex;
         justify-content: space-between;
@@ -272,12 +275,12 @@
     <!--   navigations button -->
     <header>
       <img class="logo_header" src="billeder/logo_3.svg" alt="logo" class="logo" />
-      <div class="header_menu">
+      <nav class="header_menu">
         <button>Aarhus</button>
         <button>København</button>
         <button>Odense</button>
-        <button>OM OS</button>
-      </div>
+        <button id="om_os">OM OS</button>
+      </nav>
     </header>
     <div class="splash">
       <img class="logo" src="billeder/logo_3.svg" alt="logo" class="logo" />
