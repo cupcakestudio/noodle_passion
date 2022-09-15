@@ -27,7 +27,9 @@
   font-size: 1.5rem;
   font-weight: 500;
 }
-      
+      span {
+        font-style: italic ;
+      }
 
       article {
         display: grid;
@@ -187,10 +189,12 @@ margin:16px 0;
       }
 
       .splash_tekst {
-        place-self: end center;
-z-index: 2;
-color: white;
-font-family: "M PLUS Rounded 1c";
+      place-self: end center;
+      z-index: 2;
+      color: white;
+      font-family: "Josefin Slab", serif;
+     font-size: clamp(1rem, 0.2958rem + 2.2535vw, 3rem);
+     margin-bottom: 1.6rem;
       }
     
       .logo {
@@ -270,6 +274,9 @@ font-family: "M PLUS Rounded 1c";
          h1 {
           font-size: 2.3rem;
         }
+        .splash_tekst {
+          margin-bottom: 3rem;
+        }
       }
       @media (min-width: 875px) {
           .billede_popup {
@@ -293,6 +300,9 @@ font-family: "M PLUS Rounded 1c";
           .logo_header {
             width: 25rem;
           }
+           .splash_tekst {
+          margin-bottom: 5rem;
+        }
         }
 
       @media (min-width: 1000px) {
@@ -322,6 +332,9 @@ font-family: "M PLUS Rounded 1c";
           justify-content: center;
           overflow: scroll;
           z-index: 2;
+        }
+          .splash_tekst {
+          margin-bottom: 7rem;
         }
     }
 
@@ -470,7 +483,7 @@ footer {
     <div class="splash">
       <img class="logo" src="billeder/logo_3.svg" alt="logo" class="logo" />
       <img class="splash_billede" src="billeder/splash_noodle1.webp" alt="splash_rotate" />
-     <p class="splash_tekst">- Din personelige nudelguide.</p>
+     <p class="splash_tekst">- Din personelige nudel<span>guide.</span></p>
     </div>
    
     <main>

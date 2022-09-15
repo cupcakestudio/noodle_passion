@@ -57,6 +57,9 @@ article {
 }
 
 /* Placerer logo oven på splashbillede */
+span {
+  font-style: italic;
+}
 
 .splash {
   display: grid;
@@ -64,7 +67,8 @@ article {
 }
 
 .splash_billede,
-.logo {
+.logo,
+.splash_tekst {
   grid-area: 1/1;
 }
 
@@ -72,6 +76,15 @@ article {
   filter: grayscale(50);
   place-self: center center;
   aspect-ratio: 2000/750;
+}
+
+.splash_tekst {
+  place-self: end center;
+  z-index: 2;
+  color: white;
+  font-family: "Josefin Slab", serif;
+  font-size: clamp(1rem, 0.2958rem + 2.2535vw, 3rem);
+  margin-bottom: 1.6rem;
 }
 
 .logo {
@@ -179,6 +192,9 @@ footer {
   .logo_header {
     width: 25rem;
   }
+  .splash_tekst {
+    margin-bottom: 3.1rem;
+  }
 }
 
 /* BURGERMENU STYLING*/
@@ -260,5 +276,10 @@ li {
     left: 0;
     margin: 0%;
     background-color: #e5e1db;
+  }
+}
+@media (min-width: 1000px) {
+  .splash_tekst {
+    margin-bottom: 7rem;
   }
 }
