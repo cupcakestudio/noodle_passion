@@ -71,7 +71,6 @@ li {
 
 /* er vores container til navigationsmenu*/
 .navbar{
-  min-height: 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -195,8 +194,9 @@ margin:16px 0;
       /* Styling af header */
 
       .logo_header {
-        width: 8%;
+        width: 17%;
         margin-right: 0;
+        padding-top: 10px;
       }
 
       .header_menu {
@@ -219,6 +219,11 @@ margin:16px 0;
         align-items: baseline;
       }
 
+      .nav-menu a {
+        text-decoration: none;
+        color: #000;
+            font-family: "Josefin Slab", serif;
+      }
   
 /* Luk knap */
       #luk {
@@ -277,6 +282,9 @@ margin:16px 0;
         .overskrift_popup {
           grid-column: 2;
         }
+          .logo_header {
+            width: 25rem;
+          }
         }
 
       @media (min-width: 1000px) {

@@ -35,7 +35,9 @@ body {
 }
 
 h1,
-article {
+article,
+button,
+a {
   font-family: "Josefin Slab", serif;
 }
 
@@ -81,8 +83,9 @@ article {
 /* Styling af header */
 
 .logo_header {
-  width: 8%;
+  width: 17%;
   margin-right: 0 auto;
+  padding-top: 10px;
 }
 
 .header_menu {
@@ -173,6 +176,9 @@ footer {
     line-height: 1.5rem;
     margin-top: 1rem;
   }
+  .logo_header {
+    width: 25rem;
+  }
 }
 
 /* BURGERMENU STYLING*/
@@ -183,7 +189,6 @@ li {
 
 /* er vores container til navigationsmenu*/
 .navbar {
-  min-height: 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
