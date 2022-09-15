@@ -20,8 +20,7 @@ body {
   background-image: url(/billeder/noodle_background_blue.svg);
   height: 100vh;
   max-width: 100%;
-  /* background-repeat: no-repeat; */
-  /* aspect-ratio: 2525/5092; */
+
   background-size: cover;
 }
 
