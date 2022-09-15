@@ -60,73 +60,7 @@
       }
 
 
-/* burgermenu */
 
-header {
-  padding: 2rem;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.menu_header ul {
- list-style: none;
-  padding: 0;
-
-  display: flex;
-  gap: 10px;
-}
-.toggle-btn {
-  background: transparent;
-  border: none;
-  min-width: 44px;
-  min-height: 44px;
-  font-size: 1.1rem;
-  cursor: pointer;
-
-  /* Skjuler menu-knappen når den ikke er trykket på */
-  display: none;
-}
-
-/* BURGERMENU */
-.toggle-btn {
-    /* Viser knap i mobilformat = 600px */
-    display: block;
-    margin-left: auto;
-    color: aquamarine;
-  }
-  .menu {
-    /* Fjerner den anden menu når burgermenuen vises, men viser stadig børnene */
-    display: contents;
-  }
-  .menu ul {
-    /* Fjerner menupunkterne når burger-menuen ikke bliver vist */
-    display: none;
-  }
-
-  .menu.shown ul {
-    /* Vis menupunkterne, når klassen ".shown" er til stede */
-    border-top: 1px solid #000;
-
-    padding-top: 1rem;
-    display: flex;
-    flex: 1 1 100%;
-    flex-flow: column;
-  }
-  .menu.shown ul li {
-    /* Vis menu-listen, når klassen ".shown" er til stede */
-    flex-flow: column;
-    margin-left: auto;
-  }
-
-       @media (min-width: 600px) {
-.toggle-btn {
-  display: none;
-}
- }
 
 
       /* Styling af knapper i filtrerings menu */
@@ -351,16 +285,21 @@ header {
     <header>
       <img class="logo_header" src="billeder/logo_3.svg" alt="logo" class="logo" />
      <!--  Dette er vores menu container -->
-      <nav class="header_menu">
+      <nav class="navbar">
         <!-- burgermenu -->
        <button class="toggle-btn"><img class="burgermenu_img" src="burger_ikon.svg" alt="x"></button> 
         
-       <ul class="mobil_burger">
+       <ul class="nav-menu">
       <li><button data-by="aarhus">Aarhus</button></li>
     <li> <button data-by="kbh" class="vælg">København</button></li> 
      <li><button data-by="odense">Odense</button></li>
      <li><button id="om_os">OM OS</button></li>
      </ul>
+     <div class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+     </div>
       </nav>
     </header>
     <div class="splash">
@@ -480,37 +419,7 @@ header {
 
 
     /* BURGERMENU */
-// En variabel som vi kan referer til som toggle-btn senere
-const btn = document.querySelector(".toggle-btn");
 
-const burger_img = document.querySelector(".burgermenu_img");
-// Variabel til vores menu container 
-const menu = document.querySelector(".header_menu");
-
-// Funktion kaldet togglemenu
-function toggleMenu() {
-  // ClassList.toggle gør at menu at der sker noget når klassen bliver vist (shown)
-  menu.classList.toggle("shown");
-
-  // Variablen menuShown skal indeholde shown -brug ClassList contains
-  const menuShown = menu.classList.contains("shown");
-
-  // Bruger if sætning til at spørge om funktionen er shown eller ej
-  if (menuShown) {
-    console.log(menuShown);
-
-    burger_img.src = "kryds.svg";
-    //hvis der bliver trykket på knappen så den toggler bliver billedet af krydset vist
-  } else {
-    console.log(menuShown);
-
-    //  bliver til burgermenu ikonet igen hvis menuShown ikke er til stede (false)
-    burger_img.src = "burger_ikon.svg";
-  }
-}
-
-// lytter efter klik til "knappen" menu. dette starter funktionen
-btn.addEventListener("click", toggleMenu);
 
   </script>
 </html>
