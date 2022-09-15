@@ -125,8 +125,7 @@ top: 2.5rem;
     flex-direction: column;
     width: 100%;
     text-align: center;
-    z-index: 2;
-    
+    z-index: 2;  
   }
 
   /* Dette gør at hamburger menuen skifter fra 3 sterger til et kryds når menuen er synlig*/
@@ -259,6 +258,11 @@ margin:16px 0;
         .nav-menu{
           display: flex;
           flex-direction: row;
+           margin-right: 1rem;
+           gap: 10px;
+        }
+        .nav-menu button {
+          font-size: 1.5rem;
         }
 
         .filteringsknapper {
@@ -279,6 +283,9 @@ margin:16px 0;
         .splash_tekst {
           margin-bottom: 3rem;
         }
+          .logo_header {
+            width: 25rem;
+          }
       }
       @media (min-width: 875px) {
           .billede_popup {
@@ -479,7 +486,7 @@ footer {
         <li><button data-by="aarhus">Aarhus</button></li>
         <li> <button data-by="kbh" class="vælg">København</button></li> 
         <li><button data-by="odense">Odense</button></li>
-        <li><a href="om_os.html">OM OS</a></li>
+        <li><a href="om_os.html">Om os</a></li>
      </ul>
      <div class="hamburger">
       <span class="bar"></span>
