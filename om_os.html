@@ -10,23 +10,23 @@
   </head>
   <body>
     <header>
-      <img class="logo_header" src="billeder/logo_3.svg" alt="logo" class="logo" />
-     <!--  Dette er vores menu container -->
+      <a href="index.html"><img class="logo_header logo" src="billeder/logo_3.svg" alt="logo" /></a>
+      <!--  Dette er vores menu container -->
       <nav class="navbar">
         <!-- burgermenu -->
-      
-       <ul class="nav-menu">
-        <a href="#" class="toggle-btn"></a>
-      <li><button data-by="aarhus">Aarhus</button></li>
-    <li> <button data-by="kbh" class="vælg">København</button></li> 
-     <li><button data-by="odense">Odense</button></li>
-    <a href="om_os.html">OM OS</a>
-     </ul>
-     <div class="hamburger">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-     </div>
+
+        <ul class="nav-menu">
+          <a href="#" class="toggle-btn"></a>
+          <li><button data-by="aarhus">Aarhus</button></li>
+          <li><button data-by="kbh" class="vælg">København</button></li>
+          <li><button data-by="odense">Odense</button></li>
+          <a href="om_os.html">OM OS</a>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
       </nav>
     </header>
     <div class="splash">
@@ -51,42 +51,43 @@
     </article>
     <footer>
       <section class="footer_flex">
-             <div class="footer_indhold">
-           <p>Om os</p>
-           <p>Kontakt</p>
-           <p>Tidligere kampagner</p>
-         </div>
-             <div class="ikoner">
-               <a href="">
-                 <img src="insta_ikon.svg" alt="Instagram" />
-               </a>
-               <a href="">
-                 <img src="fb_ikon.svg" alt="Facebook" />
-               </a>
-             </div>
-           </section>
-         
-        <div class="copyright"> <p>© Slurp 2022</p> </div>
-       </footer>
+        <div class="footer_indhold">
+          <p>Om os</p>
+          <p>Kontakt</p>
+          <p>Tidligere kampagner</p>
+        </div>
+        <div class="ikoner">
+          <a href="">
+            <img src="insta_ikon.svg" alt="Instagram" />
+          </a>
+          <a href="">
+            <img src="fb_ikon.svg" alt="Facebook" />
+          </a>
+        </div>
+      </section>
+
+      <div class="copyright"><p>© Slurp 2022</p></div>
+    </footer>
   </body>
   <script>
-        /* BURGERMENU */
+    /* BURGERMENU */
     /* Her defineres konstanter som tager fat i vores navigationsmenu og vores hamburger*/
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
 
-/* ved click toggler vi så når der klikkes aktiveres hamburgermenuen og vores navigations menu*/
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
-} )
+    /* ved click toggler vi så når der klikkes aktiveres hamburgermenuen og vores navigations menu*/
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    });
 
-/* For hvert link i nav menuen tilføjes der en Click-eventhandler der gør hamburgermenu og navmenuen ikke aktiv. 
+    /* For hvert link i nav menuen tilføjes der en Click-eventhandler der gør hamburgermenu og navmenuen ikke aktiv. 
 så når der klikkes på linksne i menuen, gøres hamburger menuen ikke-aktiv*/
-document.querySelectorAll(".nav.link-button").forEach(element => element.addEventListener("click", ()=> {
-hamburger.classList.remove("active");
-navMenu.classList.remove("active");
-})
-)
+    document.querySelectorAll(".nav.link-button").forEach((element) =>
+      element.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+      })
+    );
   </script>
 </html>
