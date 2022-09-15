@@ -131,6 +131,7 @@ header {
   text-decoration: underline;
   font-family: "Josefin Slab", serif;
   cursor: pointer;
+  margin-bottom: 15px;
 }
 .footer_indhold p:hover {
   color: white;
@@ -143,6 +144,7 @@ header {
 footer {
   background-color: #e5e1db;
   padding-inline: 3rem;
+  padding-top: 4rem;
 }
 .footer_flex {
   display: flex;

@@ -383,12 +383,17 @@ margin: auto;
 }
 
 /* FOOTER */
+
+
+.footer_indhold a {
+color: #000;
+}
 .footer_indhold p {
 text-decoration: underline;
  font-family: "Josefin Slab", serif;
  cursor: pointer;
 }
-.footer_indhold p:hover {
+.footer_indhold p:hover a:hover {
   color: white;
 }
 
@@ -399,6 +404,7 @@ text-decoration: underline;
 footer {
    background-color: #e5e1db;
    padding-inline: 3rem;
+   padding-top: 4rem;
 }
 .footer_flex {
     display: flex;
@@ -504,7 +510,7 @@ footer {
     <footer>
    <section class="footer_flex">
           <div class="footer_indhold">
-        <p>Om os</p>
+        <p><a href="om_os.html">Om os</a></p>
         <p>Kontakt</p>
         <p>Tidligere kampagner</p>
       </div>
