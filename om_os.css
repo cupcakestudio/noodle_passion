@@ -30,6 +30,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   line-height: 1.4rem;
+  background-color: #e5e1db;
+  padding-inline: 10px;
 }
 
 h1,
