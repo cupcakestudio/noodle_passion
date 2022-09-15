@@ -18,6 +18,11 @@
 
 body {
   background-image: url(/billeder/noodle_background_blue.svg);
+  height: 100vh;
+  max-width: 100%;
+  /* background-repeat: no-repeat; */
+  /* aspect-ratio: 2525/5092; */
+  background-size: cover;
 }
 
 .omos_tekst {
@@ -45,51 +50,6 @@ main {
 article {
   display: grid;
   padding-top: 40px;
-}
-
-/* Placerer ramenNavn oven på ramenbillede*/
-
-.ramenbillede,
-.ramenNavn {
-  grid-area: 1/1;
-}
-
-.ramenNavn {
-  place-self: center center;
-  z-index: 1;
-  color: white;
-  font-family: "M PLUS Rounded 1c", sans-serif;
-  text-transform: uppercase;
-  font-weight: 900;
-  text-shadow: 5px 5px black;
-}
-
-/* Grayscale og hover på ramenbillede */
-
-.ramenbillede {
-  filter: grayscale(50);
-}
-
-.ramenbillede:hover {
-  filter: none;
-}
-
-/* Styling af knapper i filtrerings menu */
-
-button {
-  border: none;
-  background: none;
-  font-family: "Josefin Slab";
-}
-
-.filteringsknapper {
-  text-decoration: 1px underline;
-  font-size: 1.1rem;
-}
-
-.filteringsknapper_lokation {
-  display: flex;
-  justify-content: center;
 }
 
 /* Placerer logo oven på splashbillede */
@@ -154,7 +114,7 @@ header {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 40px;
   }
-  .nav-menu{
+  .nav-menu {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -191,49 +151,46 @@ li {
 }
 
 /* er vores container til navigationsmenu*/
-.navbar{
+.navbar {
   min-height: 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  
 }
 
 /* Dette gør at der er et bestemt tidsinterval før animationen sker */
-.nav-link-button{
-transition: 0.7s ease;
+.nav-link-button {
+  transition: 0.7s ease;
 }
 
 /* Dette er en container hvor vores "bar" ligger i*/
-.hamburger{
+.hamburger {
   display: none;
   cursor: pointer;
-position: fixed;
-right: 5%;
+  position: fixed;
+  right: 5%;
 }
 
 /*Dette er vores hamburger menu ikon(de 3 streger) */
-.bar{
+.bar {
   display: block;
   width: 25px;
   height: 3px;
   margin: 5px auto;
   transition: all 0.3s ease-in-out;
   background-color: rgb(0, 0, 0);
-
-
 }
 
 /* BURGERMENU i MOBIL*/
 @media (max-width: 700px) {
   /* display block bruges til at lægge alle liste elementerne oven på hinanden */
-  .hamburger{
+  .hamburger {
     display: block;
   }
 
   /* Dette er selve menuen og gør at vi kan se menuen mens vi scroller. z-indeks for at menuen ikke er gemt bag billedet*/
-  .nav-menu{
+  .nav-menu {
     position: fixed;
     left: -100%;
     top: 70px;
@@ -242,32 +199,28 @@ right: 5%;
     width: 100%;
     text-align: center;
     z-index: 2;
-    
   }
 
   /* Dette gør at hamburger menuen skifter fra 3 sterger til et kryds når menuen er synlig*/
-  .hamburger.active .bar:nth-child(2){
+  .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
 
- .hamburger.active .bar:nth-child(1){
+  .hamburger.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
-   .hamburger.active .bar:nth-child(3){
-     transform: translateY(-8px) rotate(-45deg);
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 
   /* knappen der trykkes på for at toggle frme of tilbage mellem hamburger og kryds*/
-  .toggle-btn{
-  margin:16px 0;
+  .toggle-btn {
+    margin: 16px 0;
   }
   /* her definere vi at vores menupunkter er synlige på skærmen når toggle btn er active*/
- .nav-menu.active{
+  .nav-menu.active {
     left: 0;
-    margin:0% ;
+    margin: 0%;
     background-color: #e5e1db;
   }
-
-
-  }
-
+}
