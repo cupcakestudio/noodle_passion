@@ -60,11 +60,94 @@
       }
 
 
+/* BURGERMENU STYLING*/
+li {
+  /* dette gør at liste elementerne ikke får prikkerne */
+  list-style: none;
+}
+
+/* er vores container til navigationsmenu*/
+.navbar{
+  min-height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+/* Dette gør at der er et bestemt tidsinterval før animationen sker */
+.nav-link-button{
+transition: 0.7s ease;
+}
+
+/* Dette er en container hvor vores "bar" ligger i*/
+.hamburger{
+  display: none;
+  cursor: pointer;
+position: fixed;
+right: 5%;
+}
+
+/*Dette er vores hamburger menu ikon(de 3 streger) */
+.bar{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(0, 0, 0);
 
 
+}
+
+/* BURGERMENU i MOBIL*/
+@media (max-width: 700px) {
+  /* display block bruges til at lægge alle liste elementerne oven på hinanden */
+  .hamburger{
+    display: block;
+  }
+
+  /* Dette er selve menuen og gør at vi kan se menuen mens vi scroller. z-indeks for at menuen ikke er gemt bag billedet*/
+  .nav-menu{
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    
+  }
+
+  /* Dette gør at hamburger menuen skifter fra 3 sterger til et kryds når menuen er synlig*/
+  .hamburger.active .bar:nth-child(2){
+    opacity: 0;
+  }
+
+ .hamburger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+  }
+   .hamburger.active .bar:nth-child(3){
+     transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* knappen der trykkes på for at toggle frme of tilbage mellem hamburger og kryds*/
+  .toggle-btn{
+margin:16px 0;
+  }
+  /* her definere vi at vores menupunkter er synlige på skærmen når toggle btn er active*/
+ .nav-menu.active{
+    left: 0;
+    margin:0% ;
+    background-color: #e5e1db;
+  }
+
+
+  }
 
       /* Styling af knapper i filtrerings menu */
-
       button {
         border: none;
         background: none;
@@ -140,6 +223,10 @@
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           grid-gap: 40px;
+        }
+        .nav-menu{
+          display: flex;
+          flex-direction: row;
         }
 
         .filteringsknapper {
@@ -287,9 +374,9 @@
      <!--  Dette er vores menu container -->
       <nav class="navbar">
         <!-- burgermenu -->
-       <button class="toggle-btn"><img class="burgermenu_img" src="burger_ikon.svg" alt="x"></button> 
-        
+      
        <ul class="nav-menu">
+        <a href="#" class="toggle-btn"></a>
       <li><button data-by="aarhus">Aarhus</button></li>
     <li> <button data-by="kbh" class="vælg">København</button></li> 
      <li><button data-by="odense">Odense</button></li>
@@ -355,7 +442,7 @@
     let filterBydel = "kbh";
 
   function start(){
-    const byfiltermulighed = document.querySelectorAll("nav button"); // hent nav button bydel knap
+    const byfiltermulighed = document.querySelectorAll("nav li button"); // hent nav button bydel knap
     //const filtermulighed = document.querySelectorAll("section button"); 
     byfiltermulighed.forEach(knap => knap.addEventListener("click", filterBy));//tilknyt funktionskald på filterknap for hver bydels knap
     //filtermulighed.forEach(knap => knap.addEventListener("click", filtering));//tilknyt funktionskald på filterknap for hver bydels knap
@@ -419,7 +506,22 @@
 
 
     /* BURGERMENU */
+    /* Her defineres konstanter som tager fat i vores navigationsmenu og vores hamburger*/
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
 
+/* ved click toggler vi så når der klikkes aktiveres hamburgermenuen og vores navigations menu*/
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+} )
 
+/* For hvert link i nav menuen tilføjes der en Click-eventhandler der gør hamburgermenu og navmenuen ikke aktiv. 
+så når der klikkes på linksne i menuen, gøres hamburger menuen ikke-aktiv*/
+document.querySelectorAll(".nav.link-button").forEach(element => element.addEventListener("click", ()=> {
+hamburger.classList.remove("active");
+navMenu.classList.remove("active");
+})
+)
   </script>
 </html>
