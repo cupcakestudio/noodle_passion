@@ -71,7 +71,7 @@ article {
 .splash_billede {
   filter: grayscale(50);
   place-self: center center;
-  aspect-ratio: 2000/800;
+  aspect-ratio: 2000/750;
 }
 
 .logo {
@@ -206,6 +206,8 @@ li {
   cursor: pointer;
   position: fixed;
   right: 5%;
+  z-index: 2;
+  top: 2.5rem;
 }
 
 /*Dette er vores hamburger menu ikon(de 3 streger) */

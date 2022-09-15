@@ -89,6 +89,8 @@ transition: 0.7s ease;
   cursor: pointer;
 position: fixed;
 right: 5%;
+z-index: 2;
+top: 2.5rem;
 }
 
 /*Dette er vores hamburger menu ikon(de 3 streger) */
@@ -171,20 +173,26 @@ margin:16px 0;
       .splash {
         display: grid;
         width: 100%;
-
       }
 
       .splash_billede,
-      .logo {
+      .logo, .splash_tekst {
         grid-area: 1/1;
       }
 
       .splash_billede {
         filter: grayscale(50);
         place-self: center center;
-        aspect-ratio: 2000/800;
+        aspect-ratio: 2000/750;
       }
 
+      .splash_tekst {
+        place-self: end center;
+z-index: 2;
+color: white;
+font-family: "M PLUS Rounded 1c";
+      }
+    
       .logo {
         place-self: center center;
         z-index: 1;
@@ -462,7 +470,9 @@ footer {
     <div class="splash">
       <img class="logo" src="billeder/logo_3.svg" alt="logo" class="logo" />
       <img class="splash_billede" src="billeder/splash_noodle1.webp" alt="splash_rotate" />
+     <p class="splash_tekst">- Din personelige nudelguide.</p>
     </div>
+   
     <main>
       <div class="overskrift_forside">
         <h1 id="filterBy"></h1>
