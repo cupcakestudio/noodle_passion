@@ -35,7 +35,7 @@ body {
 }
 
 h1,
-p {
+article {
   font-family: "Josefin Slab", serif;
 }
 
@@ -112,33 +112,31 @@ header {
 /* FOOTER */
 .footer_indhold p {
   text-decoration: underline;
-   font-family: "Josefin Slab", serif;
-   cursor: pointer;
-  }
-  .footer_indhold p:hover {
-    color: white;
-  }
-  
-  .copyright {
-      text-align: center;
-      padding-block: 1.5rem 1rem;
-  }
-  footer {
-     background-color: #e5e1db;
-     padding-inline: 3rem;
-  }
-  .footer_flex {
-      display: flex;
-    justify-content: space-between;
-  }
-  .ikoner {
-    display: flex;
-    align-self: end;
-    gap: 5px;
-  }
+  font-family: "Josefin Slab", serif;
+  cursor: pointer;
+}
+.footer_indhold p:hover {
+  color: white;
+}
 
-  
-  
+.copyright {
+  text-align: center;
+  padding-block: 1.5rem 1rem;
+}
+footer {
+  background-color: #e5e1db;
+  padding-inline: 3rem;
+}
+.footer_flex {
+  display: flex;
+  justify-content: space-between;
+}
+.ikoner {
+  display: flex;
+  align-self: end;
+  gap: 5px;
+}
+
 /* Sitet tilpasses forskellige media */
 
 @media (min-width: 700px) {
