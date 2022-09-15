@@ -99,8 +99,12 @@ span {
   margin-right: 0 auto;
   padding-top: 10px;
 }
-.nav-menu button {
+.nav-menu button:hover {
   cursor: pointer;
+  color: white;
+}
+.nav-menu a:hover {
+  color: white;
 }
 .header_menu {
   padding-bottom: 10px;
@@ -167,7 +171,7 @@ footer {
   .nav-menu {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 15px;
     margin-right: 1rem;
   }
 

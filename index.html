@@ -78,8 +78,9 @@ li {
   justify-content: space-between;
   align-items: center;
 }
-.nav-menu button {
+.nav-menu button:hover {
   cursor: pointer;
+  color: white;
 }
 
 /* Dette gør at der er et bestemt tidsinterval før animationen sker */
@@ -170,6 +171,10 @@ margin:16px 0;
         display: flex;
         justify-content: center;
       }
+      .filteringsknapper_lokation button:hover {
+        color: white;
+        cursor: pointer;
+      }
 
       /* Placerer logo oven på splashbillede */
 
@@ -236,6 +241,9 @@ margin:16px 0;
         text-decoration: none;
         color: #000;
             font-family: "Josefin Slab", serif;
+      }
+      .nav-menu a:hover {
+        color: white;
       }
   
 /* Luk knap */
@@ -400,7 +408,10 @@ text-decoration: underline;
  font-family: "Josefin Slab", serif;
  cursor: pointer;
 }
-.footer_indhold p:hover a:hover {
+.footer_indhold p:hover  {
+  color: white;
+}
+.footer_indhold a:hover  {
   color: white;
 }
 
@@ -486,7 +497,7 @@ footer {
         <li><button data-by="aarhus">Aarhus</button></li>
         <li> <button data-by="kbh" class="vælg">København</button></li> 
         <li><button data-by="odense">Odense</button></li>
-        <li><a href="om_os.html">Om os</a></li>
+        <li><a href="om_os.html">OM OS</a></li>
      </ul>
      <div class="hamburger">
       <span class="bar"></span>
