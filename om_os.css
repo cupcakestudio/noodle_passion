@@ -178,3 +178,87 @@ header {
     margin-top: 1rem;
   }
 }
+
+/* BURGERMENU STYLING*/
+li {
+  /* dette gør at liste elementerne ikke får prikkerne */
+  list-style: none;
+}
+
+/* er vores container til navigationsmenu*/
+.navbar{
+  min-height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+/* Dette gør at der er et bestemt tidsinterval før animationen sker */
+.nav-link-button{
+transition: 0.7s ease;
+}
+
+/* Dette er en container hvor vores "bar" ligger i*/
+.hamburger{
+  display: none;
+  cursor: pointer;
+position: fixed;
+right: 5%;
+}
+
+/*Dette er vores hamburger menu ikon(de 3 streger) */
+.bar{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(0, 0, 0);
+
+
+}
+/* BURGERMENU i MOBIL*/
+@media (max-width: 700px) {
+  /* display block bruges til at lægge alle liste elementerne oven på hinanden */
+  .hamburger{
+    display: block;
+  }
+
+  /* Dette er selve menuen og gør at vi kan se menuen mens vi scroller. z-indeks for at menuen ikke er gemt bag billedet*/
+  .nav-menu{
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    
+  }
+
+  /* Dette gør at hamburger menuen skifter fra 3 sterger til et kryds når menuen er synlig*/
+  .hamburger.active .bar:nth-child(2){
+    opacity: 0;
+  }
+
+ .hamburger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+  }
+   .hamburger.active .bar:nth-child(3){
+     transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* knappen der trykkes på for at toggle frme of tilbage mellem hamburger og kryds*/
+  .toggle-btn{
+margin:16px 0;
+  }
+  /* her definere vi at vores menupunkter er synlige på skærmen når toggle btn er active*/
+ .nav-menu.active{
+    left: 0;
+    margin:0% ;
+    background-color: #e5e1db;
+  }
+}
