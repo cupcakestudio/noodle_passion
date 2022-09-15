@@ -154,6 +154,11 @@ header {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 40px;
   }
+  .nav-menu{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
 
   .filteringsknapper {
     font-size: 1.3rem;
@@ -219,6 +224,7 @@ right: 5%;
 
 
 }
+
 /* BURGERMENU i MOBIL*/
 @media (max-width: 700px) {
   /* display block bruges til at lægge alle liste elementerne oven på hinanden */
@@ -253,7 +259,7 @@ right: 5%;
 
   /* knappen der trykkes på for at toggle frme of tilbage mellem hamburger og kryds*/
   .toggle-btn{
-margin:16px 0;
+  margin:16px 0;
   }
   /* her definere vi at vores menupunkter er synlige på skærmen når toggle btn er active*/
  .nav-menu.active{
@@ -261,4 +267,7 @@ margin:16px 0;
     margin:0% ;
     background-color: #e5e1db;
   }
-}
+
+
+  }
+
