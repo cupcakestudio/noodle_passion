@@ -21,9 +21,8 @@
 
       h1 {
         font-family: "Josefin Slab", serif;
-        font-weight: 700;
-
-        font-size: 1.3;
+        font-weight: 500;
+        font-size: 1.8rem;
         text-align: center;
       }
 
@@ -216,6 +215,7 @@ margin:16px 0;
         align-items: baseline;
       }
 
+
       /* Sitet tilpasses forskellige media */
 
       @media (min-width: 700px) {
@@ -240,6 +240,9 @@ margin:16px 0;
         .overskrift_forside,
         .filteringsknapper_lokation {
           grid-column: 1 / span 2;
+        }
+         h1 {
+          font-size: 2.3rem;
         }
 
 /* POPUP STYLING */
@@ -299,6 +302,9 @@ margin:16px 0;
         .overskrift_forside,
         .filteringsknapper_lokation {
           grid-column: 1 / span 3;
+        }
+        h1 {
+          font-size: 2.8rem;
         }
         #popup {
   position: fixed;
@@ -363,6 +369,79 @@ margin:16px 0;
   text-align: center;
 }
 
+/* FOOTER */
+.footer_indhold p {
+text-decoration: underline;
+ font-family: "Josefin Slab", serif;
+ cursor: pointer;
+}
+.footer_indhold p:hover {
+  color: white;
+}
+
+.copyright {
+    text-align: center;
+    padding-block: 1.5rem 1rem;
+}
+footer {
+   background-color: #e5e1db;
+   padding-inline: 3rem;
+}
+.footer_flex {
+    display: flex;
+  justify-content: space-between;
+}
+.ikoner {
+  display: flex;
+  align-self: end;
+  gap: 5px;
+}
+
+/* BURGERMENU */
+.toggle-btn {
+  background: transparent;
+  border: none;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  /* Skjuler menu-knappen når den ikke er trykket på */
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .toggle-btn {
+    /* Viser knap i mobilformat = 600px */
+    display: block;
+    margin-left: auto;
+  }
+
+  .header_menu {
+    /* Fjerner den anden header_menu.header_menu når burgerheader_menu.header_menuen vises, men viser stadig børnene */
+    display: contents;
+  }
+
+  .header_menu ul {
+    /* Fjerner header_menu.header_menupunkterne når burger-header_menu.header_menuen ikke bliver vist */
+    display: none;
+  }
+
+  .header_menu.shown ul {
+    /* Vis header_menu.header_menupunkterne, når klassen ".shown" er til stede */
+    border-top: 1px solid #000;
+
+    padding-top: 1rem;
+    display: flex;
+    flex: 1 1 100%;
+    flex-flow: column;
+  }
+  .header_menu.shown ul li {
+    /* Vis header_menu.header_menu-listen, når klassen ".shown" er til stede */
+    flex-flow: column;
+    margin-left: auto;
+  }
+}
 
     </style>
   </head>
@@ -406,6 +485,25 @@ margin:16px 0;
         <button class="filteringsknapper">Bedst Rated</button>
       </section>
     </main>
+    <footer>
+   <section class="footer_flex">
+          <div class="footer_indhold">
+        <p>Om os</p>
+        <p>Kontakt</p>
+        <p>Tidligere kampagner</p>
+      </div>
+          <div class="ikoner">
+            <a href="https://www.instagram.com/alboow/">
+              <img src="insta_ikon.svg" alt="Instagram" />
+            </a>
+            <a href="https://www.facebook.com/alberte.nielsen.5/">
+              <img src="fb_ikon.svg" alt="Facebook" />
+            </a>
+          </div>
+        </section>
+      </section>
+     <div class="copyright"> <p>© Slurp 2022</p> </div>
+    </footer>
     <div id="popup">
       <article>
          <div id="luk">&#x2715</div>
