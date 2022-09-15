@@ -99,7 +99,9 @@ span {
   margin-right: 0 auto;
   padding-top: 10px;
 }
-
+.nav-menu button {
+  cursor: pointer;
+}
 .header_menu {
   padding-bottom: 10px;
   font-size: 2rem;
