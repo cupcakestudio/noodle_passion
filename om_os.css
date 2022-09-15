@@ -84,6 +84,7 @@ span {
   font-family: "Josefin Slab", serif;
   font-size: clamp(1rem, 0.2958rem + 2.2535vw, 3rem);
   margin-bottom: 1.6rem;
+  text-shadow: 5px 5px 5px black;
 }
 
 .logo {
